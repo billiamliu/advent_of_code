@@ -101,7 +101,57 @@ defmodule Two do
 
 end
 
-# test = [ { "R", 5 }, { "R", 3 }, { "R", 3 }, { "R", 3 }, { "L", 1 } ]
+test = [ { "R", 7 }, { "R", 3 }, { "R", 2 }, { "R", 4 }, { "L", 1 } ]
 { res, other } = Two.run( input )
 IO.inspect res
 IO.puts other
+
+# Two Stream
+
+defmodule Two.Stream do
+
+  def run( instructions ) do
+
+    naught = %{ x: 0, y: 0, dir: [ 0, 1 ], visited: MapSet.new, last: [] }
+
+    Stream.scan( instructions, naught, fn( { dir, amt }, acc ) ->
+      visited = MapSet.new( acc.last )
+
+      [ a, b ] = swapDirection( dir, acc.dir )
+
+      visits = calcTrail( acc.x, acc.y, a, b, amt )
+      { x, y } = List.last( visits )
+
+      %{ x: x, y: y, dir: [ a, b ], visited: MapSet.union( acc.visited, visited ), last: visits }
+    end ) # compute steps
+
+    |> Stream.filter( fn %{ visited: visited, last: visits } ->
+      Enum.any?( visits, fn visit -> MapSet.member?( visited, visit ) end )
+    end ) # find ones where duplicate visits
+
+    |> Stream.take( 1 )
+
+    |> Enum.map( fn %{ visited: visited, last: visits } ->
+      Enum.filter( visits, fn visit -> MapSet.member?( visited, visit ) end )
+    end ) # get the duplicate visit
+
+  end
+
+  def calcTrail( x, y, a, b, amt ) do
+    Enum.map 1..amt, &( { x + a * &1, y + b * &1 } )
+  end
+
+  def swapDirection( "R", [ a, b ] ), do: [ b, -a ]
+
+  def swapDirection( "L", [ a, b ] ), do: [ -b, a ]
+
+end
+
+stream_result = Two.Stream.run( input )
+IO.inspect stream_result
+
+
+
+
+
+
