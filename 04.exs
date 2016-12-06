@@ -63,9 +63,7 @@ defmodule Two do
     |> Enum.to_list
   end
 
-  def target?( str ) do
-    Regex.run( ~r/north|pole/, str )
-  end
+  def target?( str ), do: Regex.run( ~r/north|pole/, str )
 
   def step( str ) do
     [ count ] = Regex.run( ~r/\d+/, str ) |> Enum.map( &String.to_integer/1 )
@@ -76,13 +74,9 @@ defmodule Two do
     |> to_string
   end
 
-  def cycle( input, _ ) when input === 45 do
-    32
-  end
+  def cycle( input, _ ) when input === 45, do: 32 # '-' to ' '
 
-  def cycle( input, _ ) when input < 97 do
-    input
-  end
+  def cycle( input, _ ) when input < 97, do: input # guard for nums
 
   def cycle( input, count ) do
     input - 97 + count
