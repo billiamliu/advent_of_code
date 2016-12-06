@@ -1,5 +1,4 @@
 input = "uqwqemis"
-test = "abc3231929"
 
 defmodule Md5 do
 
@@ -10,7 +9,7 @@ defmodule Md5 do
   end
 
   def substitute( { _, num } ) do
-     "00000substitute" <> to_string( num )
+    "00000#{ num }abc" <> to_string( num )
   end
 
 end
@@ -64,7 +63,40 @@ defmodule One do
   
 end
 
-input
-|> One.run
-|> IO.inspect
+# input |> One.run |> IO.inspect
 
+defmodule Two do 
+
+  def run( base ) do
+    Logger.log
+    step( nil, { base, 0 }, %{} )
+  end
+
+  # def to_md5( args ), do: Md5.run( args )
+  def to_md5( args ) do
+    Md5.run( args )
+  end
+
+  def step( _, _, %{ "0" => a, "1" => b, "2" => c, "3" => d, "4" => e, "5" => f, "6" => g, "7" => h } ) do
+    IO.inspect [ a, b, c, d, e, f, g, h ]
+  end
+
+  def step( "00000" <> str, { base, num }, results ) do
+    Logger.log( String.slice( str, 0..1 ), num )
+
+    [ key, val ] = String.slice( str, 0..1 ) |> String.graphemes
+    results = Map.put_new( results, key, val )
+
+    next = { base, num + 1 }
+
+    step( to_md5( next ), next, results )
+  end
+
+  def step( _, { base, num }, results ) do
+    next = { base, num + 1 }
+    step( to_md5( next ), next, results )
+  end
+  
+end
+
+input |> Two.run |> IO.inspect
