@@ -51,13 +51,19 @@ int large(void)
   int c1, c2;
 
   sum = 0;
+  i = 0;
 
-  for (i = 0; i < SIZE; i++)
+  while (i < SIZE) {
     for (j = 0; j < SIZE; j++)
       for (k = j; k < SIZE; k++)
         if ((c1 = input[i][j]) != (c2 = input[i][k]))
-          if (c1 % c2 == 0 || c2 % c1 == 0)
+          if (c1 % c2 == 0 || c2 % c1 == 0) {
             sum += c1 / c2 > c2 / c1 ? c1 / c2 : c2 / c1;
+            goto found;
+          }
+found:
+    i++;
+  }
 
   return sum;
 }
