@@ -2,4 +2,4 @@
 partially finishied, in elixir
 
 # [Advent of Code 2017](http://adventofcode.com/2017)
-in C
+in C where I want C-specific practice, in other lang where the puzzle is easy
