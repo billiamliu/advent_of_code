@@ -13,22 +13,21 @@ function small() {
   let count = 0
   while (i < size) {
     count++
-    i += sm[i]++
+    i = i + sm[i]++
   }
 
   return count
 }
 
 function large() {
-  let n, i, count
-  i = 0
-  count = 0
+  let i, n, count
+  i = n = count = 0
 
   while (i < size) {
     count++
     n = lg[i]
-    lg[i] += n >= 3 ? -1 : 1
-    i += n
+    lg[i] = lg[i] + (n >= 3 ? -1 : 1)
+    i = n + i
   }
 
   return count

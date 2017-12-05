@@ -32,6 +32,6 @@ Sort and compare each word
 ## 05.c
 Lang | ms
 --- | ---:
-JavaScript | 834
+JavaScript | 306
 C | 173
 Ruby | 5858
