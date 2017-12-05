@@ -27,4 +27,11 @@ Use a `Set` to detect duplicate, only have to scan through the input once
 - time: linear
 ### large
 Sort and compare each word
-- time: `O(n + m lg m)` where `m` is the width of the widest word, O(m lg m) is the cost of sorting a word
+- time: `O(n + n * mlgm)` where `m` is the width of the widest word, O(m lg m) is the cost of sorting a word
+
+## 05.c
+Lang | ms
+--- | ---:
+JavaScript | 834
+C | 173
+Ruby | 5858
