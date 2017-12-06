@@ -35,3 +35,6 @@ Lang | ms
 JavaScript | 306
 C | 173
 Ruby | 5858
+
+## 06.js
+Use a Hash Map to detect duplicate as well as the position of where the duplicate occours

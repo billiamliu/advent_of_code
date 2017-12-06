@@ -1,0 +1,57 @@
+/*
+ * INCOMPLETE
+ */
+#include<stdio.h>
+
+#define MAXV 100000 /* 100 000 */
+
+struct data {
+  int hash;
+  char value[16];
+  struct data *next;
+};
+
+unsigned short hash(int * array, int size)
+{
+  long hash = 127;
+
+  while (size--)
+    hash = (hash << 3) + array[size];
+
+  return (unsigned short) hash;
+}
+
+int max(int * array, int size)
+{
+  int index = 0;
+  for (int i = 0; i < size;  i++)
+    if (array[i] > array[index])
+      index = i;
+
+  return index;
+}
+
+void redistribute(int * array, int size, int source) {
+  int temp = array[source];
+  array[source] = 0;
+  size--;
+
+  while (temp--) {
+    array[++source]++;
+    if (source == size)
+      source = -1;
+  }
+}
+
+int main(void)
+{
+  int input[] = { 0, 5, 10, 0, 11, 14, 13, 4, 11, 8, 8, 7, 1, 4, 12, 11 };
+  int size = 16;
+  int count = 0;
+
+  int arr[] = { 0, 2, 7, 0 };
+  redistribute(arr, 4, 2);
+
+  printf("hash: %d\n", hash(input, size));
+
+}
