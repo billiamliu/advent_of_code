@@ -36,5 +36,9 @@ JavaScript | 306
 C | 173
 Ruby | 5858
 
-## 06.js
-Use a Hash Map to detect duplicate as well as the position of where the duplicate occours
+## 06.c
+Use a Hash Map to detect duplicate as well as the position of where the duplicate occours. Same approach in JS & C.
+Lang | ms
+--- | ---:
+JavaScript | 102
+C | 3

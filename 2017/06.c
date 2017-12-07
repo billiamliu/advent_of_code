@@ -1,10 +1,13 @@
-/*
- * INCOMPLETE
- */
 #include<stdio.h>
 #include<stdlib.h>
 
-#define MAXV 110000 /* 100 000 */
+#define MAXV 110000 /* 110 000 */
+/*
+ * was running into weird bugs using MAXV for hash modulo
+ * when writing to a block close to MAXV, Segfault 11
+ * It's tangent for another day...
+ * Allocating a slightly larger memory bypasses the issue.
+ */
 #define WIDTH 16
 
 struct data {
@@ -131,5 +134,6 @@ int main(void)
   }
 
   printf("count %d\n", count);
+  printf("cycle %d\n", count - memory[key]->time);
   return 0;
 }
