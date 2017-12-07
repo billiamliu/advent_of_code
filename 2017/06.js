@@ -1,5 +1,4 @@
-const sm = [0, 5, 10, 0, 11, 14, 13, 4, 11, 8, 8, 7, 1, 4, 12, 11]
-const lg = [0, 5, 10, 0, 11, 14, 13, 4, 11, 8, 8, 7, 1, 4, 12, 11]
+const input = [0, 5, 10, 0, 11, 14, 13, 4, 11, 8, 8, 7, 1, 4, 12, 11]
 
 function redistribute(array, source) {
   const size = array.length
@@ -49,4 +48,4 @@ function run(array) {
   return [count, count - cache[key]]
 }
 
-console.log(run(sm))
+console.log(run(input))
