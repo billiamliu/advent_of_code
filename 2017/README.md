@@ -50,3 +50,6 @@ Scan through all entries in linear time and use a Map to keep count of occurance
 ### big
 DFS with early return, no need to build a tree when accessing using the Map.
 - time: linear
+
+## 08.js
+Fairly straightforward, using a Set to keep count of registers as they are encountered.
