@@ -42,3 +42,11 @@ Lang | ms
 --- | ---:
 JavaScript | 102
 C | 3
+
+## 07.js
+### small
+Scan through all entries in linear time and use a Map to keep count of occurance; the head only appears once, a child appears in its parent's children list, as well as on its own as a node.
+- time: linear
+### big
+DFS with early return, no need to build a tree when accessing using the Map.
+- time: linear
