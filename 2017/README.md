@@ -53,3 +53,6 @@ DFS with early return, no need to build a tree when accessing using the Map.
 
 ## 08.js
 Fairly straightforward, using a Set to keep count of registers as they are encountered.
+
+## 09.js
+Simple loop with some flags and early `continue` clauses.
