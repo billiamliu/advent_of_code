@@ -56,3 +56,6 @@ Fairly straightforward, using a Set to keep count of registers as they are encou
 
 ## 09.js
 Simple loop with some flags and early `continue` clauses.
+
+## 10.c
+Implemented by following instructions, nothing special of note.
