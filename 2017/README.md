@@ -62,3 +62,6 @@ Implemented by following instructions, nothing special of note.
 
 ## 11.js
 Using a 3-axis coordinate system to map hex grids.
+
+## 12.js
+DFS on an adjacency list.
