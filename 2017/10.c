@@ -64,6 +64,7 @@ void large(char *input, int leng, int *store, int size, int rounds) {
       pos += suffix[i] + skip;
     }
   }
+  printf("%d, %d, %d\n", store[0], store[1], store[2]);
 }
 
 void compress(int *src, int sLeng, int cycle, int *dest)

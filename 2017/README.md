@@ -68,3 +68,9 @@ DFS on an adjacency list.
 
 ## 13.rb + .js
 OOP lend it self naturally for part one, then part 2 in JS because Ruby takes too long to implement.
+
+## 14.c
+### small
+Follow instructions and use the Knot Hex generator from Day 10.
+### large
+Construct a matrix and then DFS.
