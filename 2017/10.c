@@ -87,7 +87,7 @@ void compress(int *src, int sLeng, int cycle, int *dest)
 void printHex()
 {
   for (int i = 0; i < DENSE_SIZE; i++)
-    printf("%2x", dense[i]);
+    printf("%02x", dense[i]);
   printf("\n");
 }
 
