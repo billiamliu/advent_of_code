@@ -74,3 +74,6 @@ OOP lend it self naturally for part one, then part 2 in JS because Ruby takes to
 Follow instructions and use the Knot Hex generator from Day 10.
 ### large
 Construct a matrix and then DFS.
+
+## 15.c
+Follow instructions, haven't thought of a clever number theory trick yet. Perhaps along the lines of GCD?
