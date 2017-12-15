@@ -65,3 +65,6 @@ Using a 3-axis coordinate system to map hex grids.
 
 ## 12.js
 DFS on an adjacency list.
+
+## 13.rb + .js
+OOP lend it self naturally for part one, then part 2 in JS because Ruby takes too long to implement.
