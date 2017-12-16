@@ -77,3 +77,6 @@ Construct a matrix and then DFS.
 
 ## 15.c
 Follow instructions, haven't thought of a clever number theory trick yet. Perhaps along the lines of GCD?
+
+## 16.js
+16! ≈ 21B combinations, but given 1B iterations, there must a cycle somewhere. Once cycle detection is implemented, it was found at iter 60.
