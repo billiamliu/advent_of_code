@@ -80,3 +80,6 @@ Follow instructions, haven't thought of a clever number theory trick yet. Perhap
 
 ## 16.js
 16! ≈ 21B combinations, but given 1B iterations, there must a cycle somewhere. Once cycle detection is implemented, it was found at iter 60.
+
+## 17.js
+Trick for the second part was that, only the number after `0` was of interest, and `0` happens to always be the first element in the array. There was no need to keep track of an actual buffer, the math could be simulated.
