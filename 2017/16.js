@@ -77,14 +77,6 @@ function small(input, progs) {
   return progs
 }
 
-function batchSwap(arr, dict) {
-  const ret = []
-  arr.forEach((ltr, i) => {
-    ret[dict[i]] = ltr
-  })
-  return ret
-}
-
 function large(input) {
   let p0 = [
     'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h',
@@ -98,8 +90,8 @@ function large(input) {
       i = iter - (iter % (i + 1)) - 1
     }
   }
-    return p0
-  }
+  return p0
+}
 
-  console.log(small(parse(read(fname))).join(''))
-  console.log(large(parse(read(fname))).join(''))
+console.log(small(parse(read(fname))).join(''))
+console.log(large(parse(read(fname))).join(''))
