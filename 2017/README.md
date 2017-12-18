@@ -83,3 +83,6 @@ Follow instructions, haven't thought of a clever number theory trick yet. Perhap
 
 ## 17.js
 Trick for the second part was that, only the number after `0` was of interest, and `0` happens to always be the first element in the array. There was no need to keep track of an actual buffer, the math could be simulated.
+
+## 18.js
+Following instructions, be careful as both the 2nd and 3rd part of the instructions can be either letters or numbers. `1` can look awefully similar to `l`.
