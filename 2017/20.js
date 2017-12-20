@@ -28,12 +28,9 @@ function small(particles) {
 }
 
 function tick(p) {
-  p[4] += p[7]
-  p[5] += p[8]
-  p[6] += p[9]
-  p[1] += p[4]
-  p[2] += p[5]
-  p[3] += p[6]
+  p[1] += p[4] += p[7]
+  p[2] += p[5] += p[8]
+  p[3] += p[6] += p[9]
 }
 
 function registerLocation(set, p, i) {
@@ -48,7 +45,7 @@ function collide(particles, collisions) {
 }
 
 function large(particles) {
-  const cooldown = 1000
+  const cooldown = 50
   let temperature = cooldown
   while (temperature--) {
     let set = {}
