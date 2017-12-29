@@ -92,3 +92,6 @@ Following instructions.
 
 ## 20.js
 Since acceleration is constant, the closest pariticle for part 1 could be easily figured out by sorting: acceleration, velocity, and then distance. Part two _could_ be numerically calculated at O(n^2) to compute which particles will eventually collide, but for purposes of this puzzle where iteration is designed to be small, it's easier to just simulate.
+
+## 22.js
+Direction of `y` can be tricky, as "moving up" in `y` is moving _down_ in y index.
