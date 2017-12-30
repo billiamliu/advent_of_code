@@ -95,3 +95,6 @@ Since acceleration is constant, the closest pariticle for part 1 could be easily
 
 ## 22.js
 Direction of `y` can be tricky, as "moving up" in `y` is moving _down_ in y index.
+
+## 23.js
+Part 2 is a refactor of the pseudo-assembly input. Apparently a prime number counter.
