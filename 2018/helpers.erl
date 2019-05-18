@@ -13,6 +13,6 @@ get_all_lines(Device) ->
     Line -> [string:trim(Line) | get_all_lines(Device)]
   end.
 
-print(Str) -> io:fwrite("~s~n", [Str]).
+print(X) -> io:fwrite("~p~n", [X]).
 print_int(Num) -> io:fwrite("~B~n", [Num]).
 str_to_int(Str) -> {Int, _} = string:to_integer(Str), Int.

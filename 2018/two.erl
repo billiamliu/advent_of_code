@@ -1,10 +1,10 @@
 -module(two).
--import(helpers, [read/1, print/1, print_int/1]).
--export([main/0]).
+-import(helpers, [read/1, print/1]).
+-export([main/0, proc/0, match/3]).
 
 main() ->
   Input = read("02.txt"),
-  print_int(solve(one, Input)),
+  print(solve(one, Input)),
   print(solve(two, Input)).
 
 solve(one, List) ->
@@ -39,11 +39,13 @@ count([], Map) ->
 
 % PART TWO
 
+-spec common(string(), string()) -> string().
 common(X, Y) -> common(X, Y, []).
 common([], [], Out) -> Out;
 common([H|T1], [H|T2], Out) -> [H|common(T1, T2, Out)];
 common([_X|T1], [_Y|T2], Out) -> common(T1, T2, Out).
 
+-spec diff(string(), string()) -> pos_integer().
 % convenience default arg
 diff(X, Y) -> diff(X, Y, 0).
 % when char is same, continue
@@ -54,9 +56,30 @@ diff([_X|T1], [_Y|T2], Count) -> diff(T1, T2, Count + 1);
 diff(X, X, Count) -> Count;
 diff(_X, _Y, Count) -> Count + 1.
 
+-spec compare(any(), []) -> boolean()
+    ; (string(), [string()]) -> {}.
 compare(_, []) -> false;
 compare(Str, [H|T]) ->
   case diff(Str, H) of
     1 -> {Str, H};
     _ -> compare(Str, T)
+  end.
+
+% PART TWO WITH PROCESSES
+
+proc() ->
+  Input = read("02.txt"),
+  print(with_proc(two, Input)).
+
+with_proc(two, Input) ->
+  [spawn(?MODULE, match, [self(), I, Input]) || I <- Input],
+  receive
+    {A, B} -> common(A, B);
+    X -> io:fwrite("Received message no match~p~n", [X])
+  end.
+
+match(Recipient, Str, List) ->
+  case compare(Str, List) of
+    false -> 0;
+    Result -> Recipient ! Result
   end.
